@@ -17,16 +17,16 @@ else
 	echo "Adding Ubuntu PHP repos"
 	echo
 	# Add the PHP 8.0 repo
-	sudo apt install ca-certificates apt-transport-https software-properties-common -y
-	sudo add-apt-repository ppa:ondrej/php
-	sudo add-apt-repository ppa:ondrej/apache2
+	sudo yum install ca-certificates apt-transport-https software-properties-common -y
+	sudo add-yum-repository ppa:ondrej/php
+	sudo add-yum-repository ppa:ondrej/apache2
 fi
 
 # Perform updates
-sudo apt update && sudo apt upgrade -y
+sudo yum update
 
 # Install web components
-sudo apt install apache2 mysql-common mariadb-server php8.0 php8.0-common php8.0-bcmath php8.0-intl php8.0-curl php8.0-zip php8.0-gd php8.0-xml php8.0-mbstring php8.0-ldap php8.0-mysql php-mysql -y
+sudo yum install apache2 mysql-common mariadb-server php8.0 php8.0-common php8.0-bcmath php8.0-intl php8.0-curl php8.0-zip php8.0-gd php8.0-xml php8.0-mbstring php8.0-ldap php8.0-mysql php-mysql -y
 echo
 echo "Installing Composer (a friendly php helper that unpacks the php libraries contained within firefly and creates a firefly-iii project)..."
 echo
