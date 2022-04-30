@@ -17,16 +17,16 @@ else
 	echo "Adding Ubuntu PHP repos"
 	echo
 	# Add the PHP 8.0 repo
-	sudo yum install ca-certificates apt-transport-https software-properties-common -y
-	sudo add-yum-repository ppa:ondrej/php
-	sudo add-yum-repository ppa:ondrej/apache2
+	sudo apt install ca-certificates apt-transport-https software-properties-common -y
+	sudo add-apt-repository ppa:ondrej/php
+	sudo add-apt-repository ppa:ondrej/apache2
 fi
 
 # Perform updates
-sudo yum update
+sudo apt update && sudo apt upgrade -y
 
 # Install web components
-sudo yum install apache2 mysql-common mariadb-server php8.0 php8.0-common php8.0-bcmath php8.0-intl php8.0-curl php8.0-zip php8.0-gd php8.0-xml php8.0-mbstring php8.0-ldap php8.0-mysql php-mysql -y
+sudo apt install apache2 mysql-common mariadb-server php8.0 php8.0-common php8.0-bcmath php8.0-intl php8.0-curl php8.0-zip php8.0-gd php8.0-xml php8.0-mbstring php8.0-ldap php8.0-mysql php-mysql -y
 echo
 echo "Installing Composer (a friendly php helper that unpacks the php libraries contained within firefly and creates a firefly-iii project)..."
 echo
@@ -38,7 +38,7 @@ echo "If prompted, just hit Enter"
 echo
 echo "Unpacking firefly-iii project"
 echo
-sudo composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii 5.6.16
+sudo composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii 5.7.2
 # This will stop the  white screen issue
 # Changing firefly-iii folder permissions
 sudo chown -R www-data:www-data firefly-iii
@@ -46,7 +46,7 @@ sudo chmod -R 775 firefly-iii/storage
 echo
 echo "Unpacking data importer for firefly-iii"
 echo
-sudo composer create-project firefly-iii/data-importer --no-dev --prefer-dist data-importer 0.9.0
+sudo composer create-project firefly-iii/data-importer --no-dev --prefer-dist data-importer 0.9.8
 sudo chown -R www-data:www-data data-importer
 sudo chmod -R 775 data-importer/storage
 sudo cp firefly-iii/data-importer/.env.example .env
