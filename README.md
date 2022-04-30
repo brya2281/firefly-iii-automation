@@ -6,7 +6,7 @@ This script assumes you are running a flavor of Linux that includes apt package 
 At the terminal:
 
   1. If you don't have _git_ installed, just run `sudo apt install git`.
-  2. `git clone https://github.com/runlevel-4/firefly-iii-automation`
+  2. `git clone -b debian https://github.com/brya2281/firefly-iii-automation`
   3. `sh firefly-iii-automation/installlampwithfirefly.sh`
 
 ==========================================================
